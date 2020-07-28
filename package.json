@@ -1,0 +1,22 @@
+{
+  "name": "dns-proxy-tls",
+  "version": "1.0.0",
+  "description": "Proxy from DNS to DNS-over-TLS",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "./node_modules/.bin/eslint .",
+    "lint-fix": "./node_modules/.bin/eslint --fix ."
+  },
+  "keywords": [
+    "DNS",
+    "TLS",
+    "DoT"
+  ],
+  "author": "albertorojasm95@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.5.0"
+  }
+}
