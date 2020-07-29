@@ -20,20 +20,21 @@ function onConnectionProxyToDoT(sock){
 
      // Listen for data from the connected client.
     sock.on('data', (data) => {
-        console.log(`TCP Server got Message from ${sock.remoteAddress}:${sock.remotePort} : ${data} `);
+        console.log(`TCP Server got Message from ${sock.remoteAddress}:${sock.remotePort} : ${data}`);
         // Proxy to CloudFlare
         proxy.tcpProxy(data, sock);
     });
 
     // Handle client connection termination.
     sock.on('close', () => {
-        console.log(`${sock.remoteAddress}:${sock.remotePort} Terminated the connection`);
+        console.log(`TCP ${sock.remoteAddress}:${sock.remotePort} Terminated the connection`);
+        sock.end();
     });
 
     // Handle Client connection error.
     sock.on('error', (error) => {
-        console.error(`${sock.remoteAddress}:${sock.remotePort} Connection Error ${error}`);
-        sock.close();
+        console.error(`TCP ${sock.remoteAddress}:${sock.remotePort} Connection Error ${error}`);
+        sock.end();
     });
 }
 
